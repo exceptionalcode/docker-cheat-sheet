@@ -4,6 +4,6 @@ This tutorial is meant for those who are interested in learning Docker as a cont
 This tutorial is compiled taking a reference from [Docker Website](www.docker.com//).
 
 ## Table of Contents
-- What is Docker?
-## What is Docker?
+* [Why Docker](#why-docker)
+## Why Docker
 Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
