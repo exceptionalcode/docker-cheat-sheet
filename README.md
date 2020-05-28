@@ -147,7 +147,7 @@ $ docker run -p 8080:8080 <image tag>
 $ docker run -d -p 8080:8080 <image tag>
 ```
 
-### Command to run Container and Exited when it is removed
+### Command to run Container and Exited when it is removed or Container in stopped
 ```
 $ docker run --rm -d -p 8080:8080 <image tag>
 ```
@@ -181,3 +181,12 @@ $ docker rm <containerId>
 ```
 It will also delete the container folder on the above location.
 
+### Stop Container by Container Id
+```
+$ docker stop <containerId>
+```
+
+### Stop Container by Container Name
+```
+$ docker stop <containerName>
+```
