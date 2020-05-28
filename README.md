@@ -147,6 +147,16 @@ $ docker run -p 8080:8080 <image tag>
 $ docker run -d -p 8080:8080 <image tag>
 ```
 
+### Command to run Container and Exited when it is removed
+```
+$ docker run --rm -d -p 8080:8080 <image tag>
+```
+
+### Command to run Container by giving its Name
+```
+$ docker run --name nametesing -d -p 8080:8080 <image tag>
+```
+
 ### Command to list all the running Containers on the machine
 ```
 $ docker ps
@@ -157,3 +167,17 @@ $ docker ps
 $ docker ps -a
 ```
 -a represents for all
+
+### Containers info
+On Linux you can move into the the docker container folder where you can find Docker Containers details.
+Path for Docker Container folder:
+```
+$ sudo ls -l /var/lib/docker/containers
+```
+
+### Remove Container
+```
+$ docker rm <containerId>
+```
+It will also delete the container folder on the above location.
+
