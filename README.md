@@ -90,6 +90,11 @@ $ docker build -t nginx .
 (-t) represents the tag </br>
 (.) repesents the current directory for Dockerfile
 
+If the Dockerfile is in different directory
+```
+$ docker build -t nginx <dir path>/
+```
+
 - Command to list the Images 
 ```
 $ docker images
@@ -137,4 +142,7 @@ $ docker run -p 8080:8080 <image tag>
 ```
 (-p) represents the port mapping inside the container to expose outside the container 
 
-
+- Command to run Image and to create Container by an Image in the Background
+```
+$ docker run -d -p 8080:8080 <image tag>
+```
