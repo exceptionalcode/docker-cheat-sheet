@@ -131,10 +131,10 @@ It will pull the ubuntu latest image from Docker Hub
 $ docker pull ubuntu:18.04
 ```
 
-- Command to run Image and to create Container by an Image
-``
+- Command to run Image and to create Container by an Image 
+```
 $ docker run -p 8080:8080 <image tag>
-``
+```
 (-p) represents the port mapping inside the container to expose outside the container 
 
 
