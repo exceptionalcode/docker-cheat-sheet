@@ -38,10 +38,22 @@ A user can pull/push the Docker Images from Docker Registry and deploy on any en
 
 ## Docker Installation
 You can install standalone docker on you local machine from [Docker Desktop](https://docs.docker.com/desktop/) for your windows/mac./
+
+Then you can start Docker Tool Box, command propmt will open to check docker is running run below command.
+```
+docker --version
+```
 Or if you are using AWS Linux EC2 instance you can simply execute below command to install Docker.
 ```
 sudo amazon-linux-extras install docker
 ```
-
+To enable and start Docker service on startup in AWS Linux EC2 instance use below command.
+```
+sudo systemctl enable docker
+```
+To add your user to docker group use below command:
+```
+sudo usermod-a -G docker <user>
+```
 
  
