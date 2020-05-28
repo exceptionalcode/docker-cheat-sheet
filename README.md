@@ -22,7 +22,7 @@ Readers should be familiar with the basic concepts of Windows should be from IT 
 
 ## Docker Image
 Docker Images is a template which is use to create Docker Containers, These Docker Images are created using Build command.
-Docker let the development community to create and share the software Docker images, You don't need to worry about whether your computer can run the software, Docker images and containers can always run it.\
+Docker let the development community to create and share the software Docker images, You don't need to worry about whether your computer can run the software, Docker images and containers can always run it.
 
 We will explore more in depth in "Docker Commands Section". 
 
@@ -37,7 +37,7 @@ Multiple users can share, collaborate and exchange Docker Images by uploading th
 A user can pull/push the Docker Images from Docker Registry and deploy on any enviroment.
 
 ## Docker Installation
-You can install standalone docker on you local machine from [Docker Desktop](https://docs.docker.com/desktop/) for your windows/mac./
+You can install standalone docker on you local machine from [Docker Desktop](https://docs.docker.com/desktop/) for your windows/mac.
 
 Then you can start Docker Tool Box, command propmt will open to check docker is running run below command.
 ```
