@@ -83,7 +83,7 @@ CMD [“echo”,”Image created”]
 * [LABEL](https://docs.docker.com/config/labels-custom-metadata/) apply key/value metadata to your images, containers, or daemons.
 
 ## Docker Commands
-- Command to create an image via Dockerfile:
+### Command to create an image via Dockerfile:
 ```
 $ docker build -t nginx .
 ```
@@ -95,7 +95,7 @@ If the Dockerfile is in different directory
 $ docker build -t nginx <dir path>/
 ```
 
-- Command to list the Images 
+### Command to list the Images 
 ```
 $ docker images
 ```
@@ -107,7 +107,7 @@ nginx                     latest              b6fa739cedf5        19 hours ago  
 
 For every image Hash sha256 of the source code is stored which will be unique number called as IMAGE ID
 
-- Commant to list images by Name
+### Command to list images by Name
 ```
 $ docker images java
 
@@ -117,7 +117,7 @@ java                7                   493d82594c15        3 months ago        
 java                latest              2711b1d6f3aa        5 months ago        603.9 MB
 ```
 
-- Commant to list images by Tag 
+### Command to list images by Tag 
 ```
 $ docker images java:8
 
@@ -125,24 +125,35 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 java                8                   308e519aac60        6 days ago          824.5 MB
 ```
 
-- Command to Pull Image from default Registry(Docker Hub)
+### Command to Pull Image from default Registry(Docker Hub)
 ```
 $ docker pull ubuntu
 ```
 It will pull the ubuntu latest image from Docker Hub
 
-- Command to Pull specific version of Image from Docker Hub
+### Command to Pull specific version of Image from Docker Hub
 ```
 $ docker pull ubuntu:18.04
 ```
 
-- Command to run Image and to create Container by an Image 
+### Command to run Image and to create Container by an Image 
 ```
 $ docker run -p 8080:8080 <image tag>
 ```
 (-p) represents the port mapping inside the container to expose outside the container 
 
-- Command to run Image and to create Container by an Image in the Background
+### Command to run Image and to create Container by an Image in the Background
 ```
 $ docker run -d -p 8080:8080 <image tag>
 ```
+
+### Command to list all the running Containers on the machine
+```
+$ docker ps
+```
+
+### Command to list all the Containers available on the machine
+```
+$ docker ps -a
+```
+-a represents for all
