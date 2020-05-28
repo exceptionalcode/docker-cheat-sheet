@@ -119,3 +119,22 @@ $ docker images java:8
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 java                8                   308e519aac60        6 days ago          824.5 MB
 ```
+
+- Command to Pull Image from default Registry(Docker Hub)
+```
+$ docker pull ubuntu
+```
+It will pull the ubuntu latest image from Docker Hub
+
+- Command to Pull specific version of Image from Docker Hub
+```
+$ docker pull ubuntu:18.04
+```
+
+- Command to run Image and to create Container by an Image
+``
+$ docker run -p 8080:8080 <image tag>
+``
+(-p) represents the port mapping inside the container to expose outside the container 
+
+
