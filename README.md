@@ -10,6 +10,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 * [Docker Container](#docker-container)
 * [Docker Registry](#docker-registry)
 * [Docker Installation](#docker-install)
+* [Dockerfile](#docker-file)
 
 
 ## What is Docker
@@ -55,5 +56,27 @@ To add your user to docker group use below command:
 ```
 sudo usermod-a -G docker <user>
 ```
+## Dockerfile
+Docker gives us facility to pull the images directly from Docker Hub but if you want to create custom Image you can do by writing your own Dockerfile. A Docker File is a simple text file with instructions on how to build your images.
 
- 
+Sample Dockerfile below:
+```
+#This is a sample Dockerfile 
+FROM ubuntu:18.04 
+MAINTAINER ishaansolanki6@gmail.com 
+
+RUN apt-get update 
+RUN apt-get install –y nginx 
+CMD [“echo”,”Image created”] 
+```
+
+### Instructions
+* [FROM](https://docs.docker.com/engine/reference/builder/#from) Sets the Base Image for subsequent instructions.
+* [MAINTAINER (deprecated - use LABEL instead)](https://docs.docker.com/engine/reference/builder/#maintainer-deprecated) Set the Author field of the generated images.
+* [RUN](https://docs.docker.com/engine/reference/builder/#run) execute any commands in a new layer on top of the current image and commit the results.
+* [CMD](https://docs.docker.com/engine/reference/builder/#cmd) provide defaults for an executing container.
+* [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) informs Docker that the container listens on the specified network ports at runtime.  NOTE: does not actually make ports accessible.
+* [ENV](https://docs.docker.com/engine/reference/builder/#env) sets environment variable.
+* [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) configures a container that will run as an executable.
+* [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) sets the working directory.
+* [LABEL](https://docs.docker.com/config/labels-custom-metadata/) apply key/value metadata to your images, containers, or daemons.
