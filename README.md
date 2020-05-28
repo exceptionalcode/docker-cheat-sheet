@@ -11,6 +11,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 * [Docker Registry](#docker-registry)
 * [Docker Installation](#docker-install)
 * [Dockerfile](#docker-file)
+* [Docker Commands](#docker-commands)
 
 
 ## What is Docker
@@ -62,7 +63,7 @@ Docker gives us facility to pull the images directly from Docker Hub but if you 
 Sample Dockerfile below:
 ```
 #This is a sample Dockerfile 
-FROM ubuntu:18.04 
+FROM ubuntu
 MAINTAINER ishaansolanki6@gmail.com 
 
 RUN apt-get update 
@@ -80,3 +81,41 @@ CMD [“echo”,”Image created”]
 * [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) configures a container that will run as an executable.
 * [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) sets the working directory.
 * [LABEL](https://docs.docker.com/config/labels-custom-metadata/) apply key/value metadata to your images, containers, or daemons.
+
+## Docker Commands
+- Command to create an image via Dockerfile:
+```
+$ docker build -t nginx .
+```
+(-t) represents the tag </br>
+(.) repesents the current directory for Dockerfile
+
+- Command to list the Images 
+```
+$ docker images
+```
+```
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+ubuntu                    latest              77af4d6b9913        19 hours ago        1.089 GB
+nginx                     latest              b6fa739cedf5        19 hours ago        1.089 GB
+```
+
+For every image Hash sha256 of the source code is stored which will be unique number called as IMAGE ID
+
+- Commant to list images by Name
+```
+$ docker images java
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+java                8                   308e519aac60        6 days ago          824.5 MB
+java                7                   493d82594c15        3 months ago        656.3 MB
+java                latest              2711b1d6f3aa        5 months ago        603.9 MB
+```
+
+- Commant to list images by Tag 
+```
+$ docker images java:8
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+java                8                   308e519aac60        6 days ago          824.5 MB
+```
