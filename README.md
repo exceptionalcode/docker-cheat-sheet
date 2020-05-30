@@ -317,9 +317,21 @@ $ sudo ls /var/lib/docker/volumes
 
 ### Mount the volume while creating a container 
 ```
-docker run -v jenkins:/var/jenkins_home -p 80:8080 jenkins
+$ docker run -v jenkins:/var/jenkins_home -p 80:8080 jenkins
 ```
 > This is an example of data mounting for jenkins 
+
+
+### Remove Volume 
+```
+$ docker volume rm
+```
+
+
+### Detailed Information on Volume
+```
+$ docker volume inspect
+```
 
 
 ## Docker Registry
