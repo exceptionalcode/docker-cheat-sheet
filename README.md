@@ -105,7 +105,7 @@ ubuntu                    latest              77af4d6b9913        19 hours ago  
 nginx                     latest              b6fa739cedf5        19 hours ago        1.089 GB
 ```
 
-For every image Hash sha256 of the source code is stored which will be unique number called as IMAGE ID
+> For every image Hash sha256 of the source code is stored which will be unique number called as IMAGE ID
 
 ### Command to list images by Name
 ```
@@ -129,18 +129,35 @@ java                8                   308e519aac60        6 days ago          
 ```
 $ docker pull ubuntu
 ```
-It will pull the ubuntu latest image from Docker Hub
+> It will pull the ubuntu latest image from Docker Hub
 
 ### Command to Pull specific version of Image from Docker Hub
 ```
 $ docker pull ubuntu:18.04
 ```
 
+### Delete Image by ImageId
+```
+$ docker rmi <ImageId>
+```
+
+### Delete Image by Tag
+```
+$ docker rmi <Tag>
+```
+> If you do not give any tag it is going to delete the latest tag
+
+### Delete Image if its container is running
+```
+$ docker rmi --force <tag>
+```
+If you want to delete image while its container is running
+
 ### Command to run Image and to create Container by an Image 
 ```
 $ docker run -p 8080:8080 <image tag>
 ```
-(-p) represents the port mapping inside the container to expose outside the container 
+> (-p) represents the port mapping inside the container to expose outside the container 
 
 ### Command to run Image and to create Container by an Image in the Background
 ```
@@ -179,7 +196,7 @@ $ sudo ls -l /var/lib/docker/containers
 ```
 $ docker rm <containerId>
 ```
-It will also delete the container folder on the above location.
+> It will also delete the container folder on the above location.
 
 ### Stop Container by Container Id
 ```
