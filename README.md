@@ -12,6 +12,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 * [Docker Installation](#docker-install)
 * [Dockerfile](#docker-file)
 * [Docker Commands](#docker-commands)
+* [Docker Volume](#docker-volume)
 
 
 ## What is Docker
@@ -83,7 +84,7 @@ CMD [“echo”,”Image created”]
 * [LABEL](https://docs.docker.com/config/labels-custom-metadata/) apply key/value metadata to your images, containers, or daemons.
 
 ## Docker Commands
-### Command to create an image via Dockerfile:
+### Create an image via Dockerfile:
 ```
 $ docker build -t nginx .
 ```
@@ -95,7 +96,7 @@ If the Dockerfile is in different directory
 $ docker build -t nginx <dir path>/
 ```
 
-### Command to list the Images 
+### Llist Images 
 ```
 $ docker images
 ```
@@ -107,7 +108,7 @@ nginx                     latest              b6fa739cedf5        19 hours ago  
 
 > For every image Hash sha256 of the source code is stored which will be unique number called as IMAGE ID
 
-### Command to list images by Name
+### List Images by Name
 ```
 $ docker images java
 
@@ -117,7 +118,7 @@ java                7                   493d82594c15        3 months ago        
 java                latest              2711b1d6f3aa        5 months ago        603.9 MB
 ```
 
-### Command to list images by Tag 
+### List Images by Tag 
 ```
 $ docker images java:8
 
@@ -125,13 +126,13 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 java                8                   308e519aac60        6 days ago          824.5 MB
 ```
 
-### Command to Pull Image from default Registry(Docker Hub)
+### Pull Image from default Registry(Docker Hub)
 ```
 $ docker pull ubuntu
 ```
 > It will pull the ubuntu latest image from Docker Hub
 
-### Command to Pull specific version of Image from Docker Hub
+### Pull specific version of Image from Docker Hub
 ```
 $ docker pull ubuntu:18.04
 ```
@@ -143,60 +144,90 @@ $ docker rmi <ImageId>
 
 ### Delete Image by Tag
 ```
-$ docker rmi <Tag>
+$ docker rmi <Repository>:<Tag>
 ```
 > If you do not give any tag it is going to delete the latest tag
 
 ### Delete Image if its container is running
 ```
-$ docker rmi --force <tag>
+$ docker rmi --force <ImageId>
 ```
 If you want to delete image while its container is running
 
-### Command to run Image and to create Container by an Image 
+### Run Image and to create Container by an Image 
 ```
 $ docker run -p 8080:8080 <image tag>
 ```
 > (-p) represents the port mapping inside the container to expose outside the container 
 
-### Command to run Image and to create Container by an Image in the Background
+### Run Image and to create Container by an Image in the Background
 ```
-$ docker run -d -p 8080:8080 <image tag>
-```
-
-### Command to run Container and Exited when it is removed or Container in stopped
-```
-$ docker run --rm -d -p 8080:8080 <image tag>
+$ docker run -d -p 8080:8080 <Image Tag>
 ```
 
-### Command to run Container by giving its Name
+### Run Container and Exited when it is removed or Container in stopped
 ```
-$ docker run --name nametesing -d -p 8080:8080 <image tag>
+$ docker run --rm -d -p 8080:8080 <Image Tag>
 ```
 
-### Command to list all the running Containers on the machine
+### Run Container by giving its Name
+```
+$ docker run --name nametesing -d -p 8080:8080 <Image Tag>
+```
+
+### List all the running Containers on the machine
 ```
 $ docker ps
 ```
 
-### Command to list all the Containers available on the machine
+### List all the Containers available on the machine
 ```
 $ docker ps -a
 ```
--a represents for all
+> -a represents for all
 
-### Containers info
+
+### Containers Info
 On Linux you can move into the the docker container folder where you can find Docker Containers details.
 Path for Docker Container folder:
 ```
 $ sudo ls -l /var/lib/docker/containers
 ```
 
-### Remove Container
+### Detailed Info for a running Container
+```
+$ docker inspect <containerId>
+```
+> This will give you a json output and detailed information about the running container
+
+
+### Process running inside Container
+```
+$ docker top <containerId> 
+```
+> This will show all process running inside container and its process id
+
+
+### Realtime stats of Container
+```
+$ docker stats 
+```
+> This will show Conatiner's memory, cpu, limit usage on realtime
+
+
+### Container Logs
+```
+$ docker logs -f <containerId>
+```
+> -f represents the running follow logs at runtime
+
+
+### Container Delete/Remove
 ```
 $ docker rm <containerId>
 ```
 > It will also delete the container folder on the above location.
+
 
 ### Stop Container by Container Id
 ```
@@ -207,3 +238,38 @@ $ docker stop <containerId>
 ```
 $ docker stop <containerName>
 ```
+
+## Docker Volume
+In Docker, you have a separate volume that can shared across containers. These are known as data volumes.</br>
+
+Some of the features of data volume are: </br>
+
+- They are initialized when the container is created.
+- They can be shared and also reused amongst many containers.
+- Any changes to the volume itself can be made directly.
+- They exist even after the container is deleted.
+
+### Create Volume
+```
+$ docker volume create jenkins
+```
+> Here we created volume called jenkins
+
+
+### List Volume
+```
+$ docker volume ls
+```
+
+### Path for Local Volume available(Linux):
+```
+$ sudo ls /var/lib/docker/volumes
+```
+> On this given path you can find local directory created for you container data volume
+
+
+### Mount the volume while creating a container 
+```
+docker run -v jenkins:/var/jenkins_home -p 80:8080 jenkins
+```
+> This is an example of data mounting for jenkins 
