@@ -100,6 +100,7 @@ nginx                     latest              b6fa739cedf5        19 hours ago  
 
 > For every image Hash sha256 of the source code is stored which will be unique number called as IMAGE ID
 
+
 ### List Images by Name
 ```
 $ docker images java
@@ -118,11 +119,13 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 java                8                   308e519aac60        6 days ago          824.5 MB
 ```
 
+
 ### Pull Image from default Registry(Docker Hub)
 ```
 $ docker pull ubuntu
 ```
 > It will pull the ubuntu latest image from Docker Hub
+
 
 ### Pull specific version of Image from Docker Hub
 ```
@@ -140,14 +143,17 @@ $ docker rmi <Repository>:<Tag>
 ```
 > If you do not give any tag it is going to delete the latest tag
 
+
 ### Delete Image if its container is running
 ```
 $ docker rmi --force <ImageId>
 ```
 If you want to delete image while its container is running
 
+
 ## Docker Container
 Docker Container are the running instance of Docker images and Docker images can run using the Docker run command.
+
 
 ### Run Image and to create Container by an Image 
 ```
@@ -155,25 +161,30 @@ $ docker run -p 8080:8080 <image tag>
 ```
 > (-p) represents the port mapping inside the container to expose outside the container 
 
+
 ### Run Image and to create Container by an Image in the Background
 ```
 $ docker run -d -p 8080:8080 <Image Tag>
 ```
+
 
 ### Run Container and Exited when it is removed or Container in stopped
 ```
 $ docker run --rm -d -p 8080:8080 <Image Tag>
 ```
 
+
 ### Run Container by giving its Name
 ```
 $ docker run --name nametesing -d -p 8080:8080 <Image Tag>
 ```
 
+
 ### List all the running Containers on the machine
 ```
 $ docker ps
 ```
+
 
 ### List all the Containers available on the machine
 ```
@@ -229,10 +240,48 @@ $ docker rm <containerId>
 $ docker stop <containerId>
 ```
 
+
 ### Stop Container by Container Name
 ```
 $ docker stop <containerName>
 ```
+
+
+### Execute command inside Conatainer
+```
+$ docker exec <containerId> ls
+```
+> Here we are exec ls command inside the Container
+
+
+### Login inide the Container
+```
+$ docker exec -it <containerId> bash
+```
+> With this you get a terminal of Docker Container
+
+
+### Create Docker Image from Container
+```
+$ docker commit <containerId> <image_name>
+```
+> With this you can create an Image out by Container
+** This is not recommended for Production **
+
+
+### Container Kill
+```
+$ docker kill <containerId>
+```
+> This will forcefull delete a Container
+
+
+### Container Restart
+```
+$ docker -run -d -p 80:80 ---restart always <image tag>
+```
+> --restart always represent by any chance if container goes down restart it always
+
 
 
 ## Docker Volume
@@ -245,6 +294,7 @@ Some of the features of data volume are: </br>
 - Any changes to the volume itself can be made directly.
 - They exist even after the container is deleted.
 
+
 ### Create Volume
 ```
 $ docker volume create jenkins
@@ -256,6 +306,7 @@ $ docker volume create jenkins
 ```
 $ docker volume ls
 ```
+
 
 ### Path for Local Volume available(Linux):
 ```
@@ -277,3 +328,28 @@ Docker Registry is a platform where you can store your Docker Images, This regis
 Multiple users can share, collaborate and exchange Docker Images by uploading them on docker registry.
 
 A user can pull/push the Docker Images from Docker Registry and deploy on any enviroment.
+
+
+### Login Docker Hub
+```
+$ docker login
+```
+> This will ask for username/dockerId and password
+
+
+### Push Image to Docker Hub
+```
+$ docker tag <image> <dockerhubId>/image_tag_name
+
+$ docker push <dockerhubId>/image_tag_name
+```
+> Here firstly we will tag the image by dockerId/image_tag_name, then we can push 
+
+
+### Push Image to diffrent registry
+```
+$ docker tag <image> <url_of_registry:port>/image_tag_name
+
+$ docker push <url_of_registry:port>/image_tag_name
+```
+> With this you can push the image to your privare registry 
