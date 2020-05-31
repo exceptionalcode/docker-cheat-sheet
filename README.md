@@ -516,4 +516,4 @@ for i in $(docker ps -a | grep "REGEXP_PATTERN" | cut -f1 -d" "); do echo $i; do
 docker rm -v $(docker ps -a -q -f status=exited)
 ```
 
-:+1: *Thanks Everyone for reading ... Happy Dockering!!! All the Best!!!*
+:+1: *Thanks Everyone for reading ... Happy Dockering!!! :whale: All the Best!!!* :smiley:
