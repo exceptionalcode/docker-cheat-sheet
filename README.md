@@ -13,6 +13,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 * [Docker Volume](#docker-volume)
 * [Docker Registry](#docker-registry)
 * [Docker Network](#docker-network)
+* [Docker Compose](#docker-compose)
 
 
 ## What is Docker
@@ -369,4 +370,70 @@ $ docker push <url_of_registry:port>/image_tag_name
 
 
 ## Docker Network
+Docker takes care of Networking between conatiners so that containers can communicate to eachother 
 
+Let’s look at some commands associated with networking in Docker.
+
+
+### ifconfig
+```
+$ sudo if config
+``` 
+> With this on docker host you'll see docker network adapter. This adapter is created when Docker is installed on the Docker Host.
+
+
+### List Docker Networks
+```
+$ docker network ls
+```
+> List all the network on docker host
+
+
+
+### Detail Info Docker Network
+```
+$ docker network inspect <networkname> 
+```
+> List the detail information about docker network by networkname
+
+
+### Create Network
+```
+$ docker network create –-driver <drivername> <name_of_network>
+```
+
+
+### Run Container on Network
+```
+$ docker run --network <drivername> apache
+```
+
+
+### Connect Network to Conatainer
+```
+$ docker network connect <network_name> <conatiner_name>
+```
+> This will attach your container to network
+
+
+### Disconnect Network
+```
+$ docker network disconnect <network_name>
+```
+
+
+### Remove Network
+```
+$ docker network rm <network_name>
+```
+
+
+### Assign static ip network to Container
+```
+$ docker network create --subnet=172.20.0.0/16 <network_name>
+$ docker run it --network <network_name> --ip 172.18.10.0 <container_name>
+```
+> To assign a static ip to a docker container is applicable on subnet docker can not create its own network on its own subnet it will not be able to allocate the ip address so you need to create a subnet first.
+
+
+## Docker Compose  
