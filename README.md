@@ -20,7 +20,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 ## What is Docker
 Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
 
-Which means you can dockerize your application and can run on any independent platform, your application is not dependent on any operating system or environment.
+Which means you can dockerize/containerize your application and can run on any independent platform, your application is not dependent on any operating system or environment.
 
 
 ## Prerequisites
