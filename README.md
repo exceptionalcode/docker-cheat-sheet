@@ -14,6 +14,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 * [Docker Registry](#docker-registry)
 * [Docker Network](#docker-network)
 * [Docker Compose](#docker-compose)
+* [Extras](#extras)
 
 
 ## What is Docker
@@ -437,3 +438,82 @@ $ docker run it --network <network_name> --ip 172.18.10.0 <container_name>
 
 
 ## Docker Compose  
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration
+</br>
+Using Compose is basically a three-step process:
+
+* Define your app’s environment with a Dockerfile so it can be reproduced anywhere.
+
+* Define the services that make up your app in docker-compose.yml so they can be run together in an isolated environment.
+
+* Run ***docker-compose up*** and Compose starts and runs your entire app
+
+
+### Install Docker Compose 
+For Linux : [Reference](https://docs.docker.com/compose/install/)
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+> This will download the binaries for Docker Compose
+
+```
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+> With this apply executable permissions to the binary
+
+```
+$ docker-compose --version
+```
+> With this Test the installation
+
+
+### Sample Docker Compose File
+```
+version: '2.0'
+services:
+  web:
+    build: .
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/code
+    - logvolume01:/var/log
+    links:
+    - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
+```
+
+
+### Compose Up
+```
+$ docker-compose up
+```
+> By using the following command you can start up your application
+> You can also run docker-compose in detached mode using -d flag
+
+
+### Compose Stop
+```
+$ docker-compose stop
+```
+
+
+## Extras
+Some useful commands:
+
+### Get Containers by regular expression
+```
+for i in $(docker ps -a | grep "REGEXP_PATTERN" | cut -f1 -d" "); do echo $i; done
+```
+> This you can use when you have n numbers of containers to find few perticular ones
+
+
+### Get Deleted Stopped Containers
+```
+docker rm -v $(docker ps -a -q -f status=exited)
+```
+
+:+1: *Thanks Everyone for reading ... Happy Dockering!!! All the Best!!!*
