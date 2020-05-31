@@ -12,6 +12,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 * [Docker Container](#docker-container)
 * [Docker Volume](#docker-volume)
 * [Docker Registry](#docker-registry)
+* [Docker Network](#docker-network)
 
 
 ## What is Docker
@@ -365,3 +366,7 @@ $ docker tag <image> <url_of_registry:port>/image_tag_name
 $ docker push <url_of_registry:port>/image_tag_name
 ```
 > With this you can push the image to your privare registry 
+
+
+## Docker Network
+
