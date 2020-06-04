@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a><img src="images/logo.png"></a>
+  <a><img src="images/logo1.png" width="700" height="380"></a>
   <br>
   Docket Cheat Sheet
   <br>
