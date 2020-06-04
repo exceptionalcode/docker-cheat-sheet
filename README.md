@@ -1,7 +1,15 @@
-# Docker Cheat Sheet
-This tutorial is meant for those who are interested in learning Docker as a container service. This product is been used extensively in the industry and is really making an impact on the development of various new generation applications. So anyone who is interested in learning basic Docker should can go through it.
+<h1 align="center">
+  <br>
+  <a><img src="images/logo.png"></a>
+  <br>
+  Docket Cheat Sheet
+  <br>
+</h1>
 
-This tutorial is compiled taking a reference from [Docker Website](https://www.docker.com//).
+This tutorial is meant for those who are interested in learning Docker as a container service. This product is been used extensively in the industry and is really making an impact on the development of various new generation applications. So anyone who is interested in learning basic Docker can go through it.
+
+This tutorial is compiled taking a reference from [Docker Website](https://www.docker.com//).</br>
+
 
 ## Table of Contents
 * [What is Docker](#what-is-docker)
@@ -20,7 +28,7 @@ This tutorial is compiled taking a reference from [Docker Website](https://www.d
 ## What is Docker
 Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
 
-Which means you can dockerize your application and can run on any independent platform, your application is not dependent on any operating system or environment.
+Which means you can dockerize/containerize your application and can run on any independent platform, your application is not dependent on any operating system or environment.
 
 
 ## Prerequisites
