@@ -2,7 +2,7 @@
   <br>
   <a><img src="images/logo1.png"></a>
   <br>
-  Docket Cheat Sheet
+  Docker Ocean
   <br>
 </h1>
 
