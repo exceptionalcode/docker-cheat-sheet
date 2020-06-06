@@ -408,7 +408,7 @@ $ docker network inspect <networkname>
 
 ### Create Network
 ```
-$ docker network create –-driver <drivername> <name_of_network>
+$ docker network create –-driver=<drivername> <name_of_network>
 ```
 
 
